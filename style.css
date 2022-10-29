@@ -3,15 +3,90 @@
   padding:0;
   box-sizing: border-box;
 }
+html{
+  height: 100%;
+}
 body{
-  background-color: rgb(37, 37, 39);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Permanent Marker', cursive;
+  background-color: #474747;
+  color:#DBE4EE;
+  height: 100%;
+  
+}
+header h1{
+  color:black;
 }
 .game-title{
-  background-color: rgb(2, 2, 17);
-  color:azure;
-  text-align: center;
+  background-color:#DBE4EE;
+  
   
 }
 .game-title h1{
-  padding:16px 0;
+  padding:8px 0;
+  text-align: center;
 }
+.gameplay{
+  flex:1;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: space-between;
+  margin-top: 32px;
+  
+  
+}
+.result{
+  margin-top: 32px;
+  font-size:32px;
+}
+.scoreboard{
+  display:flex;
+  justify-content: space-between;
+  gap:32px;
+  font-size: 26px;
+  border:3px solid white;
+  padding:16px;
+  border-radius: 8px;
+
+}
+.scoreboard:hover{
+  background-color:#757070;
+}
+
+
+.choices{
+  margin:32px 0 16px;
+  display:flex;
+  justify-content: space-around;
+}
+.choice{
+  border: 3px solid white;
+  margin-right:32px;
+  background-color:#81A4CD;
+  border-radius: 50%;
+  padding:16px;
+}
+.choice:hover{
+  background-color: #9caabb;
+  cursor: pointer;
+}
+.pick-weapon{
+  margin-bottom: 32px;
+  font-size:24px;
+  
+}
+footer{
+  
+  display: flex;
+  background-color:#DBE4EE;
+  justify-content: center;
+  color:black; 
+}
+footer p{
+  font-size:20px;
+  padding:12px;
+}
+
+
