@@ -1,122 +1,96 @@
 
 //caching the DOM
-const Rock = document.querySelector('#Rock');
-const Paper = document.querySelector("#Paper");
-const Scissors = document.querySelector('#Scissors');
+let playerScore=0;
+let computerScore=0;
+const rock = document.getElementById("Rock");
+const paper = document.getElementById("Paper");
+const scissors = document.getElementById('Scissors');
+const playerScoreSpan = document.getElementById('player-score');
+const scoreBoardDiv = document.getElementsByClassName('score-board');
+const computerScoreSpan = document.getElementById('computer-score');
+const resultDivP = document.querySelector('.result-p');
+const resultDiv = document.querySelector('.result');
+const choices = document.querySelectorAll(".choice");
+const choice = document.querySelector('.choice')
+let playerChoice;
+let computerChoice;
 
 //getComputerChoice
-const getComputerChoice = function(){
-    const choices = ["Rock", "Paper", "Scissors"];
-    const randomChoice = Math.floor(Math.random()*3);
+let getComputerChoice = function(){
+    let choices = ["Rock", "Paper", "Scissors"];
+    let randomChoice = Math.floor(Math.random()*3);
     return choices[randomChoice];
-}
-const computerChoice = getComputerChoice();
-
-//getplayer's input
-function capitalized(str){
-    const capitalizedText= str.charAt(0).toUpperCase() + str.slice(1).toLowerCase(); 
-return capitalizedText; }
-
-
-const getPlayerChoice = function() {
-
-    }
-const playerChoice = getPlayerChoice();
-
-//display message and score update
-const win = function(){
-    
-    console.log(`You Win! ${playerChoice} beats ${computerChoice}`);
-    
-}
-const lose = function(){
-   
-    console.log(`You Lose! ${computerChoice} beats ${playerChoice}`);
-}
-
-const draw = function(){
-    
-    console.log("You pick the same Weapon! It's a tie")
-}
-
-
-//function to play round
-const playRound = function(playerSelection, computerSelection){
-    let roundWinner;
-    if(playerSelection == computerSelection){
-        draw();
-        roundWinner = "tie";
-
-    }
-    else if(playerSelection == "Paper" && computerSelection == "Rock"){
-        win();
-        roundWinner ="player";
-        playerScore++;
-        
-       }
-    else if(playerSelection == "Rock" && computerSelection == "Scissors"){
-        win();
-        roundWinner ="player";
-        playerScore++;
-    }
-    else if(playerSelection == "Scissors" && computerSelection == "Paper"){
-        win();
-        roundWinner ="player";
-        playerScore++;
-    }
-    else if(playerSelection == "Rock" && computerSelection == "Paper"){
-        lose();
-        roundWinner ="computer";
-        computerScore++;
-    }
-    else if(playerSelection == "Paper" && computerSelection == "Scissors")
-    {
-        lose();
-        roundWinner ="computer";
-        computerScore++;
-    }
-    else if(playerSelection == "Scissors" && computerSelection == "Rock"){
-        lose();
-        roundWinner ="computer";
-        computerScore++;
-    }
 };
 
+//handle the click events.
+const handleClick = function(){
+    choices.forEach((choice) =>{
+        choice.addEventListener('click', () =>{
+            playerChoice = choice.id;
+            computerChoice = getComputerChoice();
+            playRound();
+            game();
+        })
+    })
+}
+ 
+// Function for the Various OutComet
+const win = function (){
+    playerScore++;
+    computerScore;
+    playerScoreSpan.textContent = playerScore;
+    computerScoreSpan.textContent = computerScore;
+    resultDivP.textContent = `You Win! ${playerChoice} beats ${computerChoice} `
+}
+const lose = function (){
+    playerScore;
+    computerScore++;
+    playerScoreSpan.textContent = playerScore;
+    computerScoreSpan.textContent = computerScore;
+    resultDivP.textContent = `You Lose! ${computerChoice} beats ${playerChoice}`
+}
+
+const draw = function (){
+    playerScore;
+    computerScore;
+    playerScoreSpan.textContent = playerScore;
+    computerScoreSpan.textContent = computerScore;
+    resultDivP.textContent =`You Picked the same weapon. Its a tie!`
+}
+
+//Play a single Round of the Game!!!
+const playRound = function(){
+    switch(playerChoice+computerChoice){
+        case "PaperRock":
+        case "RockScissors":
+        case "ScissorsPaper":
+            win();
+            break;
+        case "PaperScissors":
+        case "RockPaper":
+        case "ScissorsRock":
+            lose();
+            break;
+        default:
+            draw();
+    }
 
 
-//Game
+}
+
 const game = function(){
     
     
-    
-    
-     for (i = 1; playerScore < 3 && computerScore < 3; i++){
-        const result = (playRound(playerChoice, computerChoice));
-        if (roundWinner="player"){
-           
+    if (computerScore == 5 || playerScore== 5){
+        computerScore = 0;
+            playerScore = 0;
             
-            console.log(`Player's Score:${playerScore} | Computer's Score:${computerScore}`);
-        }
-        else if (roundWinner="computer"){
-           
+        if(playerScore > computerScore){
             
-            console.log(`Player's Score:${playerScore} | Computer's Score:${computerScore}`);
-
+            resultDivP.textContent = "Congratulations you won the Game! Refresh to play again";
         }
-        else if(roundWinner="tie"){
-            
-           
-            console.log(`Player's Score:${playerScore} | Computer's Score:${computerScore}`);
-        }
-        
-        if (playerScore > computerScore) {
-            return ('You win ' + playerScore + ' to ' + computerScore + '.');
-          } else if (playerScore < computerScore) {
-            return ('You lose ' + computerScore + ' to ' + playerScore + '.');
-          } else {
-            return 'It was a tie, you both won the same number of rounds.';
-          }    
+        else{ resultDivP.textContent = "Sorry you Lost. Try Again! Refresh to play again"}
     }
 }
-  
-game();
+
+handleClick();
