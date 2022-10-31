@@ -82,8 +82,7 @@ const game = function(){
     
     
     if (computerScore == 5 || playerScore== 5){
-        computerScore = 0;
-            playerScore = 0;
+        
             
         if(playerScore > computerScore){
             
@@ -91,6 +90,6 @@ const game = function(){
         }
         else{ resultDivP.textContent = "Sorry you Lost. Try Again! Refresh to play again"}
     }
+        
 }
-
 handleClick();
