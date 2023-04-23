@@ -59,8 +59,6 @@ header h1{
   color: inherit;
   border: none;
   font-size:20px;
-  padding: 0.4rem;
-  border-radius: 8px;
   background-color: #DBE4EE;
   font-family: inherit;
 }
@@ -70,14 +68,12 @@ header h1{
 a:active,
 a:hover,
 a:focus{
-  background-color: #81A4CD;
+  border-bottom: 3px solid #474747;
   cursor: pointer;;
 }
 a{
   text-decoration: none;
   color: inherit;
-  padding: 0.4rem;
-  border-radius: 8px;
   margin: 0;
 }
 
@@ -237,13 +233,10 @@ footer{
   color:black; 
   align-items: center;
   gap: 2rem;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 footer p{
   font-size:20px;
-}
-a p{
-  padding: 0 0.4rem;
 }
 
