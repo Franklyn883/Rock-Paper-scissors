@@ -1,3 +1,4 @@
+'use strict'
 //caching the DOM
 let playerScore = 0;
 let computerScore = 0;
@@ -16,13 +17,33 @@ let computerChoice;
 let playerImg = document.getElementById("player-img");
 let computerImg = document.getElementById("comp-img");
 let playing = true;
-
+const modal = document.getElementById("myModal");
+const resultMssg = document.getElementById("result-mssg");
+const playAgain = document.getElementById("play-again");
+const closeModal = document.getElementsByClassName('close')[0]
 //getComputerChoice
 let getComputerChoice = function () {
   let choices = ["Rock", "Paper", "Scissors"];
   let randomChoice = Math.floor(Math.random() * 3);
   return choices[randomChoice];
 };
+//initialization
+const init = function () {
+  playerScore = 0;
+  computerScore = 0;
+  playerImg.setAttribute("src", `images/player.png`);
+  computerImg.setAttribute("src", `images/computer.png`);
+  playerScoreSpan.textContent = playerScore;
+  computerScoreSpan.textContent = computerScore;
+  resultDivP.textContent = "Welcome! Can you defeat the machine?";
+  modal.style.display = "none";
+  playing = true;
+};
+init();
+
+//add eventlistener to playAgain button and close-modal
+closeModal.addEventListener('click',()=> modal.style.display = 'none')
+playAgain.addEventListener("click", init);
 
 //handle the click events.
 const handleClick = function () {
@@ -89,14 +110,18 @@ const playRound = function () {
 };
 
 const game = function () {
+  const gameOver = document.getElementById("gameover");
   if (computerScore == 5 || playerScore == 5) {
     playing = false;
+    modal.style.display = "block";
     if (playerScore > computerScore) {
-      resultDivP.textContent =
-        "Congratulations you won the Game! Refresh to play again";
+      resultMssg.style.color = "green";
+      gameOver.style.color = "green";
+      resultMssg.textContent = "🏆  YOU WON 🏆 ";
     } else {
-      resultDivP.textContent =
-        "Sorry you Lost. Try Again! Refresh to play again";
+      resultMssg.style.color = "red";
+      gameOver.style.color = "red";
+      resultMssg.textContent = "😞 YOU LOST 😞";
     }
   }
 };

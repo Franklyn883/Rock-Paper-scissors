@@ -100,6 +100,62 @@ header h1{
   width:2rem;
   height: auto;
 }
+
+.modal {
+  display:none;
+  position:fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content{
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border:1px solid #888;
+  width: 35%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.close{
+  align-self: flex-end;
+  color: black;
+  padding: 8px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  text-decoration: none;
+ margin-top: -16px;
+}
+.close:active,
+.close:hover,
+.close:focus{
+background-color: #bbbbbb;
+}
+#gameover{
+  font-size: 4rem;
+  color: green;
+}
+#play-again{
+  width: 40%;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+#play-again:focus,
+#play-again:hover,
+#play-again:active{
+  background-color: #bbbbbb;
+  cursor: pointer;
+}
+#result-mssg{
+  font-size: 2rem;
+  color: green;
+  padding-bottom: 3rem;
+}
 footer{
   
   display: flex;
@@ -109,6 +165,7 @@ footer{
   align-items: center;
   gap: 2rem;
 }
+
 footer p{
   font-size:20px;
   padding:12px;
