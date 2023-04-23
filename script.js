@@ -13,6 +13,8 @@ const choices = document.querySelectorAll(".choice");
 const choice = document.querySelector(".choice");
 let playerChoice;
 let computerChoice;
+let playerImg = document.getElementById('player-img');
+let computerImg = document.getElementById('comp-img')
 let playing = true
 
 //getComputerChoice
@@ -34,28 +36,33 @@ const handleClick = function () {
     });
   });
 };
-
+//update scoreboard
+const updateScoreboard = function (){
+  playerImg.setAttribute("src", `images/${playerChoice}.png`);
+  computerImg.setAttribute("src", `images/${computerChoice}.png`);
+  playerScoreSpan.textContent = playerScore;
+  computerScoreSpan.textContent = computerScore;
+}
 // Function for the Various OutComet
+
+
 const win = function () {
   playerScore++;
   computerScore;
-  playerScoreSpan.textContent = playerScore;
-  computerScoreSpan.textContent = computerScore;
+  updateScoreboard()
   resultDivP.textContent = `You Win! ${playerChoice} beats ${computerChoice} `;
 };
 const lose = function () {
   playerScore;
   computerScore++;
-  playerScoreSpan.textContent = playerScore;
-  computerScoreSpan.textContent = computerScore;
+ updateScoreboard()
   resultDivP.textContent = `You Lose! ${computerChoice} beats ${playerChoice}`;
 };
 
 const draw = function () {
   playerScore;
   computerScore;
-  playerScoreSpan.textContent = playerScore;
-  computerScoreSpan.textContent = computerScore;
+updateScoreboard();
   resultDivP.textContent = `You Picked the same weapon. Its a tie!`;
 };
 
