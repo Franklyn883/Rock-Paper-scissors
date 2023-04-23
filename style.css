@@ -54,6 +54,19 @@ header h1{
 .scoreboard:hover{
   background-color:#757070;
 }
+#about{
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  font-size:20px;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+#about:active,
+#about:hover,
+#about:focus{
+  background-color: #9caabb;
+}
 
 
 .choices{
@@ -81,8 +94,10 @@ footer{
   
   display: flex;
   background-color:#DBE4EE;
-  justify-content: center;
+  justify-content:center;
   color:black; 
+  align-items: center;
+  gap: 2rem;
 }
 footer p{
   font-size:20px;
