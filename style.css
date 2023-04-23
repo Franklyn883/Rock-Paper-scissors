@@ -92,16 +92,22 @@ a{
   align-items: center;
   gap: 8px;
 }
+
 .choice{
   border: 3px solid white;
   margin-right:32px;
   background-color:#81A4CD;
   border-radius: 50%;
   padding:16px;
+  transition: transform .2s;
 }
-.choice:hover{
+
+.choice:hover,
+.choice:active,
+.choice:focus{
   background-color: #9caabb;
   cursor: pointer;
+  transform: rotate(10deg);
 }
 .pick-weapon{
   margin-bottom: 32px;
