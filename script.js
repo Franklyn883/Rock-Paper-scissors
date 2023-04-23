@@ -5,7 +5,7 @@ const rock = document.getElementById("Rock");
 const paper = document.getElementById("Paper");
 const scissors = document.getElementById("Scissors");
 const playerScoreSpan = document.getElementById("player-score");
-const scoreBoardDiv = document.getElementsByClassName("score-board");
+const scoreboard = document.getElementsByClassName("scoreboard")[0];
 const computerScoreSpan = document.getElementById("computer-score");
 const resultDivP = document.querySelector(".result-p");
 const resultDiv = document.querySelector(".result");
@@ -13,9 +13,9 @@ const choices = document.querySelectorAll(".choice");
 const choice = document.querySelector(".choice");
 let playerChoice;
 let computerChoice;
-let playerImg = document.getElementById('player-img');
-let computerImg = document.getElementById('comp-img')
-let playing = true
+let playerImg = document.getElementById("player-img");
+let computerImg = document.getElementById("comp-img");
+let playing = true;
 
 //getComputerChoice
 let getComputerChoice = function () {
@@ -28,41 +28,45 @@ let getComputerChoice = function () {
 const handleClick = function () {
   choices.forEach((choice) => {
     choice.addEventListener("click", () => {
-        if(playing){
-      playerChoice = choice.id;
-      computerChoice = getComputerChoice();
-      playRound();
-      game();}
+      if (playing) {
+        playerChoice = choice.id;
+        computerChoice = getComputerChoice();
+        playRound();
+        game();
+      }
     });
   });
 };
 //update scoreboard
-const updateScoreboard = function (){
+const updateScoreboard = function () {
   playerImg.setAttribute("src", `images/${playerChoice}.png`);
   computerImg.setAttribute("src", `images/${computerChoice}.png`);
   playerScoreSpan.textContent = playerScore;
   computerScoreSpan.textContent = computerScore;
-}
+};
 // Function for the Various OutComet
-
 
 const win = function () {
   playerScore++;
   computerScore;
-  updateScoreboard()
+  updateScoreboard();
+  scoreboard.style.borderColor = "green";
+  setTimeout(() => (scoreboard.style.borderColor = "white"), 1000);
   resultDivP.textContent = `You Win! ${playerChoice} beats ${computerChoice} `;
 };
 const lose = function () {
   playerScore;
   computerScore++;
- updateScoreboard()
+  updateScoreboard();
+  scoreboard.style.borderColor = "red";
+  setTimeout(() => (scoreboard.style.borderColor = "white"), 1000);
   resultDivP.textContent = `You Lose! ${computerChoice} beats ${playerChoice}`;
 };
 
 const draw = function () {
   playerScore;
   computerScore;
-updateScoreboard();
+  updateScoreboard();
   resultDivP.textContent = `You Picked the same weapon. Its a tie!`;
 };
 
@@ -86,18 +90,14 @@ const playRound = function () {
 
 const game = function () {
   if (computerScore == 5 || playerScore == 5) {
-    playing = false
+    playing = false;
     if (playerScore > computerScore) {
       resultDivP.textContent =
         "Congratulations you won the Game! Refresh to play again";
-    
-    } 
-    else {
+    } else {
       resultDivP.textContent =
         "Sorry you Lost. Try Again! Refresh to play again";
     }
-   
   }
-
 };
 handleClick();
