@@ -1,64 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Rock-Paper-scissor</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js" defer></script> 
-    
-    </head>
-    <body>
-        <header class="game-title">
-            <h1>Rock-Paper-scissor</h1>
-        </header>
 
-        <div class="game-play">
-            <div class="scoreboard">
-                <div id="player-label" class="badge">
-                    <img src="images/player.png" class="profile-img" id="player-img">
-                   <p> player : <span id="player-score">0</span></p></div>
-                
-                <div id="computer-label" class="badge"> 
-                    <img src="images/computer.png" class="profile-img" id="comp-img">
-                    <p>computer : <span id="computer-score">0</span></p></div>
-                
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-scissor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+</head>
+
+<body>
+    <header class="game-title">
+        <h1>Rock-Paper-scissor</h1>
+    </header>
+
+    <div class="game-play">
+        <div class="scoreboard">
+            <div id="player-label" class="badge">
+                <img src="images/player.png" class="profile-img" id="player-img">
+                <p> player : <span id="player-score">0</span></p>
             </div>
-            <div class ="result">
-                <p class="result-p">Welcome! Can you defeat the machine?</p>
-                
+
+            <div id="computer-label" class="badge">
+                <img src="images/computer.png" class="profile-img" id="comp-img">
+                <p>computer : <span id="computer-score">0</span></p>
             </div>
-            <div class="choices">
-                <div class="choice" id="Rock">
-                    <img src="images/Rock.png">
-                </div>
-                <div class="choice" id="Paper">
-                    <img src="images/Paper.png">
-                </div>
-                <div class="choice" id="Scissors">
-                    <img src="images/Scissors.png">
-                </div>
+
+        </div>
+        <div class="result">
+            <p class="result-p">Welcome! Can you defeat the machine?</p>
+
+        </div>
+        <div class="choices">
+            <div class="choice" id="Rock">
+                <img src="images/Rock.png">
             </div>
-            <p class="pick-weapon">Choose your weapon</p>
-        </div>     
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class=" close">X</span>
-                <p id="gameover">GAME OVER</p>
-                <P id="result-mssg">🏆 YOU WON 🏆</P>
-                <button id="play-again">Play Again</button>
+            <div class="choice" id="Paper">
+                <img src="images/Paper.png">
+            </div>
+            <div class="choice" id="Scissors">
+                <img src="images/Scissors.png">
             </div>
         </div>
-        
-        <footer>
-            <a href="#" id="about">About </a>
-            <p> The Odin Project &#169 2023</p>
-        </footer>
-    </body>
-    
-    
+        <p class="pick-weapon">Choose your weapon</p>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p id="gameover">GAME OVER</p>
+            <P id="result-mssg">🏆 YOU WON 🏆</P>
+            <button id="play-again">Play Again</button>
+        </div>
+    </div>
+    <div id="about-modal">
+
+        <div class="about-modal-content">
+            <span class="close"> X </span>
+
+            <h2>About<br> Rock, Paper and Scissors</h2>
+            <p>Rock Paper Scissors is a classic hand game played between two people. It's a game of chance that's easy
+                to learn and
+                fun to play. In this digital version of the game, you'll play against the computer. The winner will be
+                determined
+                based on the weapon each player chooses.</p>
+
+            <h3>How to Play</h3>
+            <p>To play the game, simply click on one of the three choices - rock, paper, or scissors - to select your
+                weapon.
+                The computer will also randomly select its weapon, and the winner will be determined based on the
+                following
+                rules:
+            <ul>
+                <li>Rock beats scissors</li>
+                <li>Scissors beat paper</li>
+                <li>Paper beats rock</li>
+            </ul>
+            The game is won by the first player to score 5 points. At the end of each round, a message will be displayed
+            to
+            indicate
+            the winner. Good luck and have fun!</p>
+        </div>
+    </div>
+    <footer>
+        <button id="about">About </button>
+        <a href="https://github.com/Franklyn883/Rock-Paper-scissors">
+            <p> The Odin Project &#169 2023
+                <img src="images/GitHub-Mark.png" width="20px" height="auto">
+            </p>
+        </a>
+    </footer>
+</body>
+
+
 </html>

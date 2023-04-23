@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 //caching the DOM
 let playerScore = 0;
 let computerScore = 0;
@@ -20,7 +20,10 @@ let playing = true;
 const modal = document.getElementById("myModal");
 const resultMssg = document.getElementById("result-mssg");
 const playAgain = document.getElementById("play-again");
-const closeModal = document.getElementsByClassName('close')[0]
+const closeModal = document.getElementsByClassName("close")[0];
+const about = document.getElementById("about");
+const aboutModal = document.getElementById("about-modal");
+const aboutClose = document.getElementsByClassName('close')[0]
 //getComputerChoice
 let getComputerChoice = function () {
   let choices = ["Rock", "Paper", "Scissors"];
@@ -42,9 +45,15 @@ const init = function () {
 init();
 
 //add eventlistener to playAgain button and close-modal
-closeModal.addEventListener('click',()=> modal.style.display = 'none')
+closeModal.addEventListener("click", () => (modal.style.display = "none"));
 playAgain.addEventListener("click", init);
+about.addEventListener("click", () => {
+  aboutModal.style.display = "block";
+});
 
+aboutClose.addEventListener('click',()=>{
+  aboutModal.style.display = 'none'
+})
 //handle the click events.
 const handleClick = function () {
   choices.forEach((choice) => {

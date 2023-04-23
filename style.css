@@ -59,15 +59,27 @@ header h1{
   color: inherit;
   border: none;
   font-size:20px;
-  padding: 0.5rem;
+  padding: 0.4rem;
   border-radius: 8px;
+  background-color: #DBE4EE;
+  font-family: inherit;
 }
 #about:active,
 #about:hover,
-#about:focus{
-  background-color: #9caabb;
+#about:focus,
+a:active,
+a:hover,
+a:focus{
+  background-color: #81A4CD;
+  cursor: pointer;;
 }
-
+a{
+  text-decoration: none;
+  color: inherit;
+  padding: 0.4rem;
+  border-radius: 8px;
+  margin: 0;
+}
 
 .choices{
   margin:32px 0 16px;
@@ -117,39 +129,94 @@ header h1{
   padding: 20px;
   border:1px solid #888;
   width: 35%;
-  padding: 1rem;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .close{
-  align-self: flex-end;
+  text-align: end;
   color: black;
   padding: 8px;
   border-radius: 50%;
   font-size: 1.5rem;
   text-decoration: none;
- margin-top: -16px;
+  float: right;
 }
 .close:active,
 .close:hover,
 .close:focus{
-background-color: #bbbbbb;
+background-color: #bbbbbb49;
+cursor: pointer;
+}
+#about-modal{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the modal */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.about-modal-content{
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  color: black;
+  overflow: auto;
+  padding-top: 0;
+  
+}
+
+.about-modal-content h3,
+.about-modal-content h2{
+  padding: 1rem;
+  text-align: center;
+}
+
+ul{
+  margin-left: 3rem;
 }
 #gameover{
   font-size: 4rem;
   color: green;
 }
 #play-again{
-  width: 40%;
-  padding: 0.5rem;
-  border-radius: 8px;
+  position: absolute;
+  left: 50%;
+  bottom: 32%;
+  transform: translateX(-50%);
+  color:black;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+
+  padding: 0.7rem 2.5rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
 }
 #play-again:focus,
 #play-again:hover,
 #play-again:active{
   background-color: #bbbbbb;
   cursor: pointer;
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
 #result-mssg{
   font-size: 2rem;
@@ -164,11 +231,13 @@ footer{
   color:black; 
   align-items: center;
   gap: 2rem;
+  padding: 0.5rem;
 }
 
 footer p{
   font-size:20px;
-  padding:12px;
 }
-
+a p{
+  padding: 0 0.4rem;
+}
 
